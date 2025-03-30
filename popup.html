@@ -1,0 +1,40 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavel - Tab Audio Controller</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">
+          <i class="fas fa-wave-square"></i>
+        </div>
+        <h1>Wavel</h1>
+      </div>
+      <button id="theme-toggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+    <div class="subtitle">Control your tab audio</div>
+    <div id="no-audio-tabs" class="no-audio-message">
+      <p>No tabs are currently playing audio.</p>
+    </div>
+    <div id="audio-tabs-container" class="tabs-container">
+      <!-- Audio tabs will be dynamically inserted here -->
+    </div>
+    <div class="keyboard-hint">
+      Keyboard shortcuts: ←→ to adjust volume, ↑↓ to navigate tabs, M to mute/unmute
+    </div>
+    <div class="footer">
+      <p>Wavel © 2025</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

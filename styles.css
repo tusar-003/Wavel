@@ -1,0 +1,301 @@
+/* styles.css */
+:root {
+    --primary-color: #4a6cf7;
+    --primary-dark: #3a5cdf;
+    --primary-light: #7a95fa;
+    --text-color: #333;
+    --background-color: #fff;
+    --card-background: #f5f7fa;
+    --slider-background: #e1e5ee;
+    --transition: all 0.3s ease;
+  }
+  
+  body.dark-theme {
+    --primary-color: #6d8cff;
+    --primary-dark: #5a76e5;
+    --primary-light: #8aa3ff;
+    --text-color: #f0f0f0;
+    --background-color: #1a1a1a;
+    --card-background: #2d2d2d;
+    --slider-background: #3a3a3a;
+  }
+  
+  @keyframes wave {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-3px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(3px); }
+    100% { transform: translateY(0); }
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+    width: 320px;
+    min-height: 200px;
+  }
+  
+  .container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logo {
+    color: var(--primary-color);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo i {
+    animation: wave 2s infinite ease-in-out;
+  }
+  
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .subtitle {
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+  }
+  
+  .theme-toggle:hover {
+    color: var(--primary-color);
+  }
+  
+  .tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+  
+  /* Add these new styles */
+  .audio-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+    opacity: 1;
+  }
+  
+  .audio-tab.fade-out {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  
+  .tab-left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tab-favicon {
+    width: 24px; /* Slightly larger favicon */
+    height: 24px;
+    margin-right: 0; /* No need for margin since there's no title */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Make sure the popup doesn't flicker during updates */
+  .container {
+    min-height: 100px;
+    transition: height 0.3s ease;
+  }
+  
+  .tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    position: relative; /* Important for maintaining positions */
+  }
+  
+  /* Remove the tab-title style since we're not using it anymore */
+  .tab-title {
+    font-size: 12px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  
+  .tab-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .volume-slider {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--slider-background);
+    border-radius: 2px;
+    outline: none;
+  }
+  
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .volume-slider::-webkit-slider-thumb:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+  }
+  
+  /* Add Firefox support */
+  .volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .volume-slider::-moz-range-thumb:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+  }
+  
+  .mute-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mute-button:hover {
+    color: var(--primary-color);
+  }
+  
+  .mute-button.muted {
+    color: #e74c3c;
+  }
+  
+  .no-audio-message {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+  
+  .footer {
+    margin-top: 16px;
+    font-size: 11px;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.6;
+  }
+  
+  /* Add error message styling */
+  .error-message {
+    color: #e74c3c;
+    font-size: 11px;
+    margin-top: 4px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .volume-percentage {
+    min-width: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  /* Make sure these styles are in your CSS */
+  .audio-tab:focus {
+    outline: 2px solid var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .audio-tab:focus::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--primary-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  
+  /* Add a hint about keyboard shortcuts */
+  .keyboard-hint {
+    font-size: 11px;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 8px;
+    padding: 0 12px;
+  }
